@@ -57,11 +57,14 @@ import com.google.samples.apps.sunflower.ui.SunflowerTheme
 import com.google.samples.apps.sunflower.viewmodels.PlantListViewModel
 import kotlinx.coroutines.launch
 
+// 页面？
 enum class SunflowerPage(
     @StringRes val titleResId: Int,
     @DrawableRes val drawableResId: Int
 ) {
+    // 两个默认枚举
     MY_GARDEN(R.string.my_garden_title, R.drawable.ic_my_garden_active),
+
     PLANT_LIST(R.string.plant_list_title, R.drawable.ic_plant_list_active)
 }
 
@@ -70,9 +73,11 @@ enum class SunflowerPage(
 fun HomeScreen(
     modifier: Modifier = Modifier,
     onPlantClick: (Plant) -> Unit = {},
+    // viewModel是一个PlatListViewModel,被hiltViewModel持有
     viewModel: PlantListViewModel = hiltViewModel(),
-    pages: Array<SunflowerPage> = SunflowerPage.values()
+    pages: Array<SunflowerPage> = SunflowerPage.values() // 两个枚举都使用
 ) {
+    
     val pagerState = rememberPagerState(pageCount = { pages.size })
     val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior()
 
@@ -81,6 +86,7 @@ fun HomeScreen(
         topBar = {
             HomeTopAppBar(
                 pagerState = pagerState,
+                // 点击update
                 onFilterClick = { viewModel.updateData() },
                 scrollBehavior = scrollBehavior
             )

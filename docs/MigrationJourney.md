@@ -18,6 +18,7 @@ Status: Done ✅
 
 Before starting the migration process, it's best to think about the overall strategy to follow to incrementally migrate the entire app to Compose. The recommended [migration strategy](https://developer.android.com/jetpack/compose/interop/migration-strategy) is to start introducing Compose by using it for new features you build. In Sunflower's case, we won't be adding new features, instead, each screen needs to be migrated to Compose one by one followed by replacing Fragment-based navigation with Navigation Compose. This approach is also called the *bottom-up* approach to migration.
 
+替换Fragment到Compose: bottom-up方法
 See [migration strategy](https://developer.android.com/jetpack/compose/interop/migration-strategy) to learn more.
 
 ## #2 Migrate existing screens one by one

@@ -102,6 +102,7 @@ import com.google.samples.apps.sunflower.viewmodels.PlantDetailViewModel
  * As these callbacks are passed in through multiple Composables, to avoid having to name
  * parameters to not mix them up, they're aggregated in this class.
  */
+// 回调data class
 data class PlantDetailsCallbacks(
     val onFabClick: () -> Unit,
     val onBackClick: () -> Unit,
@@ -151,6 +152,7 @@ fun PlantDetails(
     plant: Plant,
     isPlanted: Boolean,
     hasValidUnsplashKey: Boolean,
+    // 持有回调集合
     callbacks: PlantDetailsCallbacks,
     modifier: Modifier = Modifier
 ) {
@@ -548,6 +550,7 @@ private fun PlantInformation(
 @Composable
 private fun PlantDescription(description: String) {
     // This remains using AndroidViewBinding because this feature is not in Compose yet
+    // 使用到res目录的layout
     AndroidViewBinding(ItemPlantDescriptionBinding::inflate) {
         plantDescription.text = HtmlCompat.fromHtml(
             description,

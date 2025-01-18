@@ -24,6 +24,7 @@ import com.google.samples.apps.sunflower.compose.SunflowerApp
 import com.google.samples.apps.sunflower.ui.SunflowerTheme
 import dagger.hilt.android.AndroidEntryPoint
 
+// 标记为MAIN 的activity
 @AndroidEntryPoint
 class GardenActivity : ComponentActivity() {
 
@@ -33,7 +34,9 @@ class GardenActivity : ComponentActivity() {
         // Displaying edge-to-edge
         enableEdgeToEdge()
         setContent {
+            // 主题
             SunflowerTheme {
+                // app托管
                 SunflowerApp()
             }
         }

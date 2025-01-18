@@ -59,10 +59,13 @@ import kotlinx.coroutines.flow.flowOf
 
 @Composable
 fun GalleryScreen(
+    // 这看起来是一种被hiltViewModel持有？
     viewModel: GalleryViewModel = hiltViewModel(),
+    // 点击图片回调
     onPhotoClick: (UnsplashPhoto) -> Unit,
     onUpClick: () -> Unit,
 ) {
+    // 使用private的
     GalleryScreen(
         plantPictures = viewModel.plantPictures,
         onPhotoClick = onPhotoClick,
@@ -70,6 +73,8 @@ fun GalleryScreen(
         onPullToRefresh = viewModel::refreshData,
     )
 }
+
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 private fun GalleryScreen(
@@ -136,6 +141,7 @@ private fun GalleryTopBar(
     onUpClick: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
+    // 头部
     TopAppBar(
         title = {
             Text(stringResource(id = R.string.gallery_title))
@@ -152,6 +158,7 @@ private fun GalleryTopBar(
     )
 }
 
+// 有参数的预览需要实现PreviewParameterProvider
 @Preview
 @Composable
 private fun GalleryScreenPreview(
@@ -162,7 +169,7 @@ private fun GalleryScreenPreview(
 
 private class GalleryScreenPreviewParamProvider :
     PreviewParameterProvider<Flow<PagingData<UnsplashPhoto>>> {
-
+    // 分页
     override val values: Sequence<Flow<PagingData<UnsplashPhoto>>> =
         sequenceOf(
             flowOf(
