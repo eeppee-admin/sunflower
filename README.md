@@ -25,6 +25,7 @@ See the linked migration journey doc above to learn more.
 > [PlantDetailView file](app/src/main/java/com/google/samples/apps/sunflower/compose/plantdetail/PlantDetailView.kt).
 
 ## Requirements
+### JDK17+ 和 gradle8.6 wrapper 
 
 ### Unsplash API key
 
